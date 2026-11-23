@@ -1,8 +1,10 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+
 import {
   getAuth,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
 import {
@@ -11,12 +13,12 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-// Replace these example values with your Firebase configuration.
+// Replace these values with your own Firebase project configuration.
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
   projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
+  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
   messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
   appId: "YOUR_APP_ID"
 };
@@ -25,18 +27,27 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-document.getElementById("loginForm").addEventListener("submit", async (event) => {
+const loginForm = document.getElementById("loginForm");
+const registrationInput = document.getElementById("registration");
+const passwordInput = document.getElementById("password");
+const message = document.getElementById("message");
+
+loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const registration = document.getElementById("registration").value.trim().toUpperCase();
-  const password = document.getElementById("password").value;
-  const message = document.getElementById("message");
+  const registration = registrationInput.value.trim().toUpperCase();
+  const password = passwordInput.value.trim();
+
+  if (!registration || !password) {
+    message.textContent = "Enter your registration number and password.";
+    return;
+  }
 
   message.textContent = "Checking your account...";
 
   try {
-    // Internal email is generated from the registration number.
-    const internalEmail = registration.toLowerCase() + "@login.leibnizmathsphere.com";
+    const internalEmail =
+      registration.toLowerCase() + "@login.leibnizmathsphere.com";
 
     const credential = await signInWithEmailAndPassword(
       auth,
@@ -48,27 +59,29 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
     const studentSnap = await getDoc(studentRef);
 
     if (!studentSnap.exists()) {
-      await auth.signOut();
-      message.textContent = "Student account not found.";
+      await signOut(auth);
+      message.textContent = "Student profile not found. Contact the administrator.";
       return;
     }
 
     const student = studentSnap.data();
 
-    if (student.active !== true ||
-        student.registrationNumber.toUpperCase() !== registration) {
-      await auth.signOut();
+    if (
+      student.active !== true ||
+      typeof student.registrationNumber !== "string" ||
+      student.registrationNumber.toUpperCase() !== registration
+    ) {
+      await signOut(auth);
       message.textContent = "Your account is inactive or invalid.";
       return;
     }
 
-    message.textContent = "Login successful! Welcome, " + student.name;
-
-    // Dashboard routing will be added in the next step.
+    message.textContent = "Welcome, " + student.name + "! Login successful.";
 
   } catch (error) {
-    console.error(error);
-    message.textContent = "Login failed. Check your registration number and password.";
+    console.error("Firebase login error:", error.code, error.message);
+    message.textContent = "Login error: " + (error.code || "unknown-error");
   }
 });
+
 

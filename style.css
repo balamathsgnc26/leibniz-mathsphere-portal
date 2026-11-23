@@ -1,22 +1,46 @@
 
+/* GENERAL SETTINGS */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BLUE GRADIENT BACKGROUND */
+
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #071629, #102c4b);
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      #1b416b 0%,
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      #17395e 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #071629,
+      #102c4b,
+      #071629
+    );
+
   font-family: "Segoe UI", Arial, sans-serif;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   padding: 25px;
 }
 
-/* Academy header */
+/* ACADEMY HEADER */
 
 .top-header {
   display: flex;
@@ -47,17 +71,23 @@ body {
   margin-top: 8px;
 }
 
-/* Login card */
+/* LOGIN CARD - ORIGINAL DESIGN */
 
 .login-container {
   width: 100%;
   max-width: 430px;
+
   background: #ffffff;
+
   padding: 40px;
   border-radius: 15px;
+
   border: 1px solid #c6a04a;
+
   box-shadow: 0 15px 45px rgba(0,0,0,0.3);
 }
+
+/* GOLD DECORATIVE LINE */
 
 .gold-line {
   width: 65px;
@@ -66,6 +96,8 @@ body {
   margin: 0 auto 25px;
   border-radius: 5px;
 }
+
+/* HEADINGS */
 
 h2 {
   color: #10233f;
@@ -80,7 +112,7 @@ h2 {
   font-size: 14px;
 }
 
-/* Form */
+/* FORM */
 
 label {
   display: block;
@@ -93,8 +125,10 @@ label {
 input {
   width: 100%;
   padding: 14px;
+
   border: 1px solid #d4dbe5;
   border-radius: 7px;
+
   font-size: 14px;
   background: #fafafa;
 }
@@ -105,19 +139,23 @@ input:focus {
   box-shadow: 0 0 0 2px #c6a04a22;
 }
 
-/* Login button */
+/* LOGIN BUTTON */
 
 button {
   width: 100%;
   margin-top: 28px;
   padding: 15px;
+
   background: #10233f;
   color: #e5c477;
+
   border: 1px solid #c6a04a;
   border-radius: 7px;
+
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 2px;
+
   cursor: pointer;
   transition: 0.3s;
 }
@@ -127,12 +165,16 @@ button:hover {
   color: #10233f;
 }
 
+/* MESSAGE */
+
 #message {
   text-align: center;
   margin-top: 15px;
   font-size: 13px;
   color: #b3261e;
 }
+
+/* FOOTER */
 
 .bottom-line {
   height: 1px;
@@ -153,9 +195,10 @@ footer span {
   color: #b08a3c;
 }
 
-/* Mobile responsive */
+/* MOBILE RESPONSIVE */
 
 @media (max-width: 480px) {
+
   .top-header {
     flex-direction: column;
     text-align: center;
@@ -168,4 +211,7 @@ footer span {
   .login-container {
     padding: 28px 22px;
   }
+
 }
+
+

@@ -1,67 +1,199 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leibniz MathSphere | Student Portal</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leibniz MathSphere | Student Portal</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #07152f, #142c50);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 35px 28px;
+  text-align: center;
+  box-shadow: 0 15px 45px rgba(0,0,0,.3);
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+h1 {
+  color: #10264b;
+  font-size: 25px;
+  margin: 8px 0;
+}
+
+.tagline {
+  color: #b08a35;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: #10264b;
+  font-size: 19px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid #c8b477;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid #b08a35;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background: #c6a34c;
+  color: #10264b;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #dfc16e;
+}
+
+#message {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #b3261e;
+}
+
+.footer {
+  margin-top: 30px;
+  color: #777;
+  font-size: 12px;
+}
+</style>
 </head>
 
 <body>
 
-  <header class="top-header">
-    <img src="logo.png" alt="Leibniz MathSphere Logo" class="academy-logo">
-    <div>
-      <h1>LEIBNIZ MATHSPHERE</h1>
-      <p>FROM FUNDAMENTALS TO INFINITY</p>
-    </div>
-  </header>
+<div class="login-card">
 
-  <main class="login-container">
+  <img src="logo.png" class="logo"
+       alt="Leibniz MathSphere Logo"
+       onerror="this.style.display='none'">
 
-    <div class="gold-line"></div>
+  <h1>LEIBNIZ MATHSPHERE</h1>
 
-    <h2>Student Portal</h2>
-    <p class="welcome">Welcome! Please sign in to continue.</p>
+  <div class="tagline">
+    FROM FUNDAMENTALS TO INFINITY
+  </div>
 
-    <form id="loginForm">
+  <h2>STUDENT LOGIN</h2>
 
-      <label for="registration">Registration Number</label>
-      <input
-        type="text"
-        id="registration"
-        placeholder="Enter your registration number"
-        autocomplete="username"
-        required
-      >
+  <p>Enter your registration number</p>
 
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        placeholder="Enter your password"
-        autocomplete="current-password"
-        required
-      >
+  <form id="loginForm">
+    <input
+      type="text"
+      id="registration"
+      placeholder="Enter Registration Number"
+      autocomplete="off"
+      required
+    >
 
-      <button type="submit">SIGN IN</button>
+    <button type="submit">LOGIN</button>
+  </form>
 
-      <p id="message"></p>
+  <div id="message"></div>
 
-    </form>
+  <div class="footer">
+    © 2026 Leibniz MathSphere
+  </div>
 
-    <div class="bottom-line"></div>
+</div>
 
-    <footer>
-      © 2026 Leibniz MathSphere
-      <span>Excellence in Mathematics</span>
-    </footer>
+<script>
+const pages = [
+  {
+    prefix: "LMSSS092026",
+    url: "https://sites.google.com/view/leibnizmathsphereacademy/class-9"
+  },
+  {
+    prefix: "LMSSS102026",
+    url: "https://sites.google.com/view/leibnizmathsphereacademy/class-10"
+  },
+  {
+    prefix: "LMSHS112026",
+    url: "https://sites.google.com/view/leibnizmathsphereacademy/class-11"
+  },
+  {
+    prefix: "LMSHS122026",
+    url: "https://sites.google.com/view/leibnizmathsphereacademy/class-12"
+  },
+  {
+    prefix: "LMSUMEM202601",
+    url: "https://sites.google.com/view/leibnizmathsphereacademy/university-mathematics"
+  }
+];
 
-  </main>
+document.getElementById("loginForm")
+.addEventListener("submit", function(event) {
 
-  <script type="module" src="app.js"></script>
+  event.preventDefault();
+
+  const registration = document
+    .getElementById("registration")
+    .value.trim()
+    .toUpperCase();
+
+  const message = document.getElementById("message");
+
+  const matchedPage = pages.find(page =>
+    registration.startsWith(page.prefix)
+  );
+
+  if (!matchedPage) {
+    message.textContent =
+      "Invalid registration number. Please check and try again.";
+    return;
+  }
+
+  message.style.color = "#167a43";
+  message.textContent = "Login successful! Redirecting...";
+
+  setTimeout(function() {
+    window.location.href = matchedPage.url;
+  }, 1000);
+
+});
+</script>
 
 </body>
 </html>

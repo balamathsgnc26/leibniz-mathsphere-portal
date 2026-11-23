@@ -15,12 +15,13 @@ import {
 
 // Replace these values with your own Firebase project configuration.
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDdj9yP_AF2GucEPK494WGWPPr5OoiFiOY",
+  authDomain: "leibniz-mathsphere.firebaseapp.com",
+  projectId: "leibniz-mathsphere",
+  storageBucket: "leibniz-mathsphere.firebasestorage.app",
+  messagingSenderId: "994944322324",
+  appId: "1:994944322324:web:81634d008eb5ce3bbb1001",
+  measurementId: "G-LQX2GSZ6DN"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -83,5 +84,6 @@ loginForm.addEventListener("submit", async (event) => {
     message.textContent = "Login error: " + (error.code || "unknown-error");
   }
 });
+
 
 

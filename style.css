@@ -14,30 +14,27 @@
 ============================== */
 
 body {
+    margin: 0;
     min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
 
-    /* Your uploaded mathematics background image */
     background-color: #071629;
     background-image:
         linear-gradient(
-            rgba(4, 15, 35, 0.30),
-            rgba(4, 15, 35, 0.30)
+            rgba(3, 12, 35, 0.20),
+            rgba(3, 12, 35, 0.20)
         ),
         url("./math-background.png");
 
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-    font-family: "Segoe UI", Arial, sans-serif;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
+}
 }
 
 /* ==============================
@@ -228,3 +225,4 @@ footer {
         max-width: 120px;
     }
 }
+

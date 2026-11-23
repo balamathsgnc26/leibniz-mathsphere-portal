@@ -1,0 +1,171 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #071629, #102c4b);
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+/* Academy header */
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 35px;
+  text-align: left;
+}
+
+.academy-logo {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.top-header h1 {
+  color: #e5c477;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.top-header p {
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: 8px;
+}
+
+/* Login card */
+
+.login-container {
+  width: 100%;
+  max-width: 430px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid #c6a04a;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+}
+
+.gold-line {
+  width: 65px;
+  height: 4px;
+  background: #c6a04a;
+  margin: 0 auto 25px;
+  border-radius: 5px;
+}
+
+h2 {
+  color: #10233f;
+  text-align: center;
+  font-size: 25px;
+}
+
+.welcome {
+  text-align: center;
+  color: #777777;
+  margin: 12px 0 28px;
+  font-size: 14px;
+}
+
+/* Form */
+
+label {
+  display: block;
+  color: #172b45;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 18px 0 8px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d4dbe5;
+  border-radius: 7px;
+  font-size: 14px;
+  background: #fafafa;
+}
+
+input:focus {
+  outline: none;
+  border-color: #c6a04a;
+  box-shadow: 0 0 0 2px #c6a04a22;
+}
+
+/* Login button */
+
+button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 15px;
+  background: #10233f;
+  color: #e5c477;
+  border: 1px solid #c6a04a;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #c6a04a;
+  color: #10233f;
+}
+
+#message {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #b3261e;
+}
+
+.bottom-line {
+  height: 1px;
+  background: #eeeeee;
+  margin-top: 30px;
+}
+
+footer {
+  text-align: center;
+  color: #777777;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+footer span {
+  display: block;
+  margin-top: 7px;
+  color: #b08a3c;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 480px) {
+  .top-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .top-header h1 {
+    font-size: 20px;
+  }
+
+  .login-container {
+    padding: 28px 22px;
+  }
+}

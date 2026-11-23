@@ -4,130 +4,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Leibniz MathSphere | Student Portal</title>
 
 <style>
+
+/* GENERAL RESET */
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* PAGE BACKGROUND */
+html {
+    min-height: 100%;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+    min-height: 100vh;
+    width: 100%;
 
-  /* 3D Mathematics Background */
-  background:
-    linear-gradient(
-      rgba(3, 12, 35, 0.35),
-      rgba(3, 12, 35, 0.45)
-    ),
-    url("./images/math-background.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+
+    background-color: #071629;
+
+    /* ACTUAL UPLOADED BACKGROUND IMAGE */
+    background-image:
+        linear-gradient(
+            rgba(3, 12, 35, 0.15),
+            rgba(3, 12, 35, 0.15)
+        ),
+        url("https://balamathsgnc26.github.io/leibniz-mathsphere-portal/math-background.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-/* Login Card */
+/* LOGIN CARD */
 .login-card {
-  width: 100%;
-  max-width: 430px;
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 18px;
-  padding: 35px 28px;
-  text-align: center;
-  box-shadow: 0 15px 45px rgba(0,0,0,.4);
-  border: 1px solid rgba(255,255,255,0.5);
+    width: 100%;
+    max-width: 430px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 18px;
+    padding: 35px 28px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+/* LOGO */
 .logo {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  margin-bottom: 12px;
+    width: 90px;
+    height: 90px;
+
+    object-fit: contain;
+    margin-bottom: 12px;
 }
 
+/* MAIN HEADING */
 h1 {
-  color: #10264b;
-  font-size: 25px;
+    color: #10264b;
+    font-size: 25px;
 }
 
+/* LOGIN HEADING */
 h2 {
-  color: #10264b;
-  font-size: 19px;
+    color: #10264b;
+    font-size: 19px;
 }
 
+/* TAGLINE */
 .tagline {
-  color: #b08a35;
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin-bottom: 30px;
+    color: #b08a35;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
 }
 
+/* INPUT FIELD */
 input {
-  width: 100%;
-  padding: 15px;
-  margin: 15px 0;
-  border: 1px solid #c8b477;
-  border-radius: 8px;
-  font-size: 16px;
+    width: 100%;
+
+    padding: 15px;
+    margin: 15px 0;
+
+    border: 1px solid #c8b477;
+    border-radius: 8px;
+
+    font-size: 16px;
 }
 
 input:focus {
-  outline: 2px solid #c6a34c;
-  border-color: #c6a34c;
+    outline: 2px solid #c6a34c;
+    border-color: #c6a34c;
 }
 
+/* LOGIN BUTTON */
 button {
-  width: 100%;
-  padding: 15px;
-  background: #c6a34c;
-  color: #10264b;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
+    width: 100%;
+
+    padding: 15px;
+
+    background: #c6a34c;
+    color: #10264b;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
-  background: #dfbd68;
-  transform: translateY(-2px);
+    background: #dfbd68;
+    transform: translateY(-2px);
 }
 
+/* MESSAGE */
 #message {
-  margin-top: 18px;
-  font-size: 14px;
+    margin-top: 18px;
+    font-size: 14px;
 }
 
+/* FOOTER */
 .footer {
-  margin-top: 30px;
-  color: #777;
-  font-size: 12px;
+    margin-top: 30px;
+    color: #777;
+    font-size: 12px;
 }
 
-/* Mobile Responsive */
+/* MOBILE RESPONSIVE */
 @media (max-width: 480px) {
-  body {
-    background-attachment: scroll;
-    padding: 15px;
-  }
 
-  .login-card {
-    padding: 30px 20px;
-  }
+    body {
+        background-attachment: scroll;
+        padding: 15px;
+    }
 
-  h1 {
-    font-size: 22px;
-  }
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
 }
+
 </style>
 </head>
 
@@ -135,99 +173,116 @@ button:hover {
 
 <div class="login-card">
 
-<img src="./logo.png" class="logo"
-alt="Leibniz MathSphere Logo"
-onerror="this.style.display='none'">
+    <img
+        src="./logo.png"
+        class="logo"
+        alt="Leibniz MathSphere Logo"
+        onerror="this.style.display='none'"
+    >
 
-<h1>LEIBNIZ MATHSPHERE</h1>
+    <h1>LEIBNIZ MATHSPHERE</h1>
 
-<div class="tagline">
-FROM FUNDAMENTALS TO INFINITY
-</div>
+    <div class="tagline">
+        FROM FUNDAMENTALS TO INFINITY
+    </div>
 
-<h2>STUDENT LOGIN</h2>
+    <h2>STUDENT LOGIN</h2>
 
-<p>Enter your registration number</p>
+    <p>Enter your registration number</p>
 
-<form id="loginForm">
+    <form id="loginForm">
 
-<input
-type="text"
-id="registration"
-placeholder="Enter Registration Number"
-autocomplete="off"
-required>
+        <input
+            type="text"
+            id="registration"
+            placeholder="Enter Registration Number"
+            autocomplete="off"
+            required
+        >
 
-<button type="submit">LOGIN</button>
+        <button type="submit">LOGIN</button>
 
-</form>
+    </form>
 
-<div id="message" role="status"></div>
+    <div id="message" role="status"></div>
 
-<div class="footer">
-© 2026 Leibniz MathSphere
-</div>
+    <div class="footer">
+        © 2026 Leibniz MathSphere
+    </div>
 
 </div>
 
 <script>
+
+/* STUDENT REGISTRATION REDIRECTS */
+
 const pages = [
-{
-prefix: "LMSSS09202",
-url: "https://sites.google.com/view/leibnizmathsphereacademy/class-9"
-},
-{
-prefix: "LMSSS10202",
-url: "https://sites.google.com/view/leibnizmathsphereacademy/class-10"
-},
-{
-prefix: "LMSHS11202",
-url: "https://sites.google.com/view/leibnizmathsphereacademy/class-11"
-},
-{
-prefix: "LMSHS12202",
-url: "https://sites.google.com/view/leibnizmathsphereacademy/class-12"
-},
-{
-prefix: "LMSUMEM202",
-url: "https://sites.google.com/view/leibnizmathsphereacademy/university-mathematics"
-}
+
+    {
+        prefix: "LMSSS09202",
+        url: "https://sites.google.com/view/leibnizmathsphereacademy/class-9"
+    },
+
+    {
+        prefix: "LMSSS10202",
+        url: "https://sites.google.com/view/leibnizmathsphereacademy/class-10"
+    },
+
+    {
+        prefix: "LMSHS11202",
+        url: "https://sites.google.com/view/leibnizmathsphereacademy/class-11"
+    },
+
+    {
+        prefix: "LMSHS12202",
+        url: "https://sites.google.com/view/leibnizmathsphereacademy/class-12"
+    },
+
+    {
+        prefix: "LMSUMEM202",
+        url: "https://sites.google.com/view/leibnizmathsphereacademy/university-mathematics"
+    }
+
 ];
+
+/* LOGIN VALIDATION */
 
 const form = document.getElementById("loginForm");
 
 form.addEventListener("submit", function(event) {
-  event.preventDefault();
 
-  const registration = document
-    .getElementById("registration")
-    .value.trim().toUpperCase();
+    event.preventDefault();
 
-  const message = document.getElementById("message");
+    const registration = document
+        .getElementById("registration")
+        .value.trim()
+        .toUpperCase();
 
-  const matchedPage = pages.find(page =>
-    registration.startsWith(page.prefix)
-  );
+    const message = document.getElementById("message");
 
-  if (!matchedPage) {
-    message.style.color = "#b3261e";
-    message.textContent =
-      "Invalid registration number. Please check and try again.";
-    return;
-  }
+    const matchedPage = pages.find(page =>
+        registration.startsWith(page.prefix)
+    );
 
-  message.style.color = "#167a43";
-  message.textContent = "Login successful! Redirecting...";
+    if (!matchedPage) {
 
-  window.location.assign(matchedPage.url);
+        message.style.color = "#b3261e";
+
+        message.textContent =
+            "Invalid registration number. Please check and try again.";
+
+        return;
+    }
+
+    message.style.color = "#167a43";
+
+    message.textContent = "Login successful! Redirecting...";
+
+    window.location.assign(matchedPage.url);
+
 });
+
 </script>
 
 </body>
 </html>
-
-
-
-
-
-

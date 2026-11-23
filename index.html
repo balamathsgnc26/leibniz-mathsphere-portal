@@ -7,7 +7,9 @@
 <title>Leibniz MathSphere | Student Portal</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -17,17 +19,31 @@ body {
   justify-content: center;
   padding: 20px;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #07152f, #142c50);
+
+  /* 3D Mathematics Background */
+  background:
+    linear-gradient(
+      rgba(3, 12, 35, 0.35),
+      rgba(3, 12, 35, 0.45)
+    ),
+    url("./images/math-background.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
+/* Login Card */
 .login-card {
   width: 100%;
   max-width: 430px;
-  background: white;
+  background: rgba(255, 255, 255, 0.96);
   border-radius: 18px;
   padding: 35px 28px;
   text-align: center;
-  box-shadow: 0 15px 45px rgba(0,0,0,.3);
+  box-shadow: 0 15px 45px rgba(0,0,0,.4);
+  border: 1px solid rgba(255,255,255,0.5);
 }
 
 .logo {
@@ -37,8 +53,15 @@ body {
   margin-bottom: 12px;
 }
 
-h1 { color: #10264b; font-size: 25px; }
-h2 { color: #10264b; font-size: 19px; }
+h1 {
+  color: #10264b;
+  font-size: 25px;
+}
+
+h2 {
+  color: #10264b;
+  font-size: 19px;
+}
 
 .tagline {
   color: #b08a35;
@@ -56,6 +79,11 @@ input {
   font-size: 16px;
 }
 
+input:focus {
+  outline: 2px solid #c6a34c;
+  border-color: #c6a34c;
+}
+
 button {
   width: 100%;
   padding: 15px;
@@ -66,6 +94,12 @@ button {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #dfbd68;
+  transform: translateY(-2px);
 }
 
 #message {
@@ -78,6 +112,22 @@ button {
   color: #777;
   font-size: 12px;
 }
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  body {
+    background-attachment: scroll;
+    padding: 15px;
+  }
+
+  .login-card {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
 </style>
 </head>
 
@@ -85,28 +135,38 @@ button {
 
 <div class="login-card">
 
-<img src="./logo.png" class="logo" alt="Leibniz MathSphere Logo"
+<img src="./logo.png" class="logo"
+alt="Leibniz MathSphere Logo"
 onerror="this.style.display='none'">
 
 <h1>LEIBNIZ MATHSPHERE</h1>
-<div class="tagline">FROM FUNDAMENTALS TO INFINITY</div>
+
+<div class="tagline">
+FROM FUNDAMENTALS TO INFINITY
+</div>
 
 <h2>STUDENT LOGIN</h2>
+
 <p>Enter your registration number</p>
 
 <form id="loginForm">
+
 <input
 type="text"
 id="registration"
 placeholder="Enter Registration Number"
 autocomplete="off"
 required>
+
 <button type="submit">LOGIN</button>
+
 </form>
 
 <div id="message" role="status"></div>
 
-<div class="footer">© 2026 Leibniz MathSphere</div>
+<div class="footer">
+© 2026 Leibniz MathSphere
+</div>
 
 </div>
 
@@ -137,33 +197,36 @@ url: "https://sites.google.com/view/leibnizmathsphereacademy/university-mathemat
 const form = document.getElementById("loginForm");
 
 form.addEventListener("submit", function(event) {
-event.preventDefault();
+  event.preventDefault();
 
-const registration = document
-.getElementById("registration")
-.value.trim().toUpperCase();
+  const registration = document
+    .getElementById("registration")
+    .value.trim().toUpperCase();
 
-const message = document.getElementById("message");
+  const message = document.getElementById("message");
 
-const matchedPage = pages.find(page =>
-registration.startsWith(page.prefix)
-);
+  const matchedPage = pages.find(page =>
+    registration.startsWith(page.prefix)
+  );
 
-if (!matchedPage) {
-message.style.color = "#b3261e";
-message.textContent = "Invalid registration number. Please check and try again.";
-return;
-}
+  if (!matchedPage) {
+    message.style.color = "#b3261e";
+    message.textContent =
+      "Invalid registration number. Please check and try again.";
+    return;
+  }
 
-message.style.color = "#167a43";
-message.textContent = "Login successful! Redirecting...";
+  message.style.color = "#167a43";
+  message.textContent = "Login successful! Redirecting...";
 
-window.location.assign(matchedPage.url);
+  window.location.assign(matchedPage.url);
 });
 </script>
 
 </body>
 </html>
+
+
 
 
 
